@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "outFile": "./src/app.js",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "filesGlob": [
+    "./src/**/*.ts",
+    "./typings/index.d.ts"
+  ],
+  "files": [
+    "./src/ts/app.ts",
+    "./typings/index.d.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  },
+  "exclude": [
+    "node_modules",
+    "typings/browser",
+    "typings/browser.d.ts"
+  ]
+}
