@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
+    "knockout": "registry:dt/knockout#0.0.0+20160512130947",
     "typescript": "registry:dt/typescript#0.4.0+20160317120654"
   }
 }

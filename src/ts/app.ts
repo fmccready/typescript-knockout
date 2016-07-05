@@ -1,3 +1,4 @@
+/// <reference path="hello.ts" />
 class Hello {
   constructor(public greeting: string) {}
   greet() {

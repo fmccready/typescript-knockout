@@ -14,6 +14,8 @@
   ],
   "files": [
     "./src/ts/app.ts",
+    "./src/ts/hello.ts",
+    "./src/ts/require-config.ts",
     "./typings/index.d.ts"
   ],
   "atom": {
