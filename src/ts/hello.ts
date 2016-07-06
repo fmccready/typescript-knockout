@@ -1,12 +1,11 @@
-import * as ko from "knockout";
+import * as ko from 'knockout';
 
-console.log("hello.ts loaded");
-
-class HelloViewModel {
+export default class HelloViewModel {
     language: KnockoutObservable<string>
     framework: KnockoutObservable<string>
 
     constructor(language: string, framework: string) {
+        console.log("hello.ts Constructing");
         this.language = ko.observable(language);
         this.framework = ko.observable(framework);
     }

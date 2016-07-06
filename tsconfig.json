@@ -3,7 +3,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": true,
-    "outFile": "./src/app.js",
+    "outFile": "./src/js/app.js",
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
