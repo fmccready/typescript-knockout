@@ -1,15 +1,16 @@
 var gulp = require('gulp');  // Main gulp module
-var ts = require('gulp-typescript'); // Compiles Typescript
-var del = require('del'); // Deletes files
+//var ts = require('gulp-typescript'); // Compiles Typescript
+//var del = require('del'); // Deletes files
 var browserify = require('browserify'); // Combines js files
 var uglify = require('gulp-uglify'); // Minifies files
-var glob = require('glob'); // Lets you use * in filenames
-// var requirejs = require('requirejs');
+//var glob = require('glob'); // Lets you use * in filenames
+//var requirejs = require('requirejs'); // AMD module loader
 var tsify = require('tsify'); // Compiles typescript after combining with browserify
 var source = require('vinyl-source-stream'); // Converts output file to stream
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync').create();
+var sass = require('gulp-sass');
 
 // Setup browser-sync
 gulp.task('browserSync', function(){
@@ -65,6 +66,7 @@ gulp.task('watch', ['build', 'scripts', 'css', 'browserSync'], function(){
   gulp.watch('./src/js/*.js', ['scripts']);
   gulp.watch('./src/**/*.+(html|htm)', ['html']);
   gulp.watch('./src/css/**/*.css', ['css']);
+  gulp.watch('./src/sass/**/*.+(scss|sass)', ['sass']);
 });
 
 gulp.task('html', function(){
@@ -88,7 +90,13 @@ gulp.task('scripts', function(){
     }));
 });
 
-gulp.task('css', function(){
+gulp.task('sass', function(){
+  return gulp.src('./src/sass/**/*.+(sass|scss)')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src/css'));
+});
+
+gulp.task('css', ['sass'], function(){
   return gulp.src('./src/css/**/*.css')
     .pipe(concat('all.css'))
     .pipe(gulp.dest('./dist/css'))

@@ -10,5 +10,3 @@ export default class HelloViewModel {
         this.framework = ko.observable(framework);
     }
 }
-
-ko.applyBindings(new HelloViewModel("TypeScript", "Knockout"));

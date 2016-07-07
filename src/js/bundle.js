@@ -5873,22 +5873,54 @@ ko.exportSymbol('nativeTemplateEngine', ko.nativeTemplateEngine);
 
 },{}],2:[function(require,module,exports){
 "use strict";
-var HelloViewModel = require('./hello');
-var Hello = (function () {
-    function Hello(greeting) {
+var ko = require('knockout');
+var hello_1 = require('./hello');
+var Greeting = (function () {
+    function Greeting(greeting) {
         this.greeting = greeting;
-        console.log('Constructed! ' + greeting);
-        console.dir(HelloViewModel);
+        console.log('Greeting constructed! ' + greeting);
     }
-    Hello.prototype.greet = function () {
+    Greeting.prototype.greet = function () {
         return "<h1>" + this.greeting + "</h1>";
     };
-    return Hello;
+    return Greeting;
 }());
-var test = new Hello("Hey hey hey!");
-document.getElementById('test').innerHTML = test.greet();
+var Person = (function () {
+    function Person(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    ;
+    return Person;
+}());
+var PeopleViewModel = (function () {
+    function PeopleViewModel(p) {
+        this.people = ko.observableArray(p);
+    }
+    return PeopleViewModel;
+}());
+var personArray = [
+    new Person('Test', 'Testerson'),
+    new Person('Nick', 'Kane'),
+    new Person('Frank', 'McCready'),
+    new Person('Mila', 'Korshunov'),
+    new Person('Carol', 'Smith'),
+    new Person('James', 'Dalton'),
+    new Person('Katie', 'Hughes'),
+    new Person('Elizabeth', 'Ha'),
+    new Person('Alec', 'Brodsky'),
+    new Person('Yvonne', 'Carman'),
+    new Person('Alex', 'Bernsin'),
+    new Person('Chip', 'Brown'),
+    new Person('Scott', 'Nearman'),
+    new Person('Carrie', 'Holden')
+];
+ko.applyBindings(new PeopleViewModel(personArray), document.getElementById('ppl'));
+ko.applyBindings(new hello_1.default("TypeScript", "Knockout"), document.getElementById('hi'));
+var hey = new Greeting("Hey hey hey!");
+document.getElementById('hey').innerHTML = hey.greet();
 
-},{"./hello":3}],3:[function(require,module,exports){
+},{"./hello":3,"knockout":1}],3:[function(require,module,exports){
 "use strict";
 var ko = require('knockout');
 var HelloViewModel = (function () {
@@ -5901,6 +5933,5 @@ var HelloViewModel = (function () {
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = HelloViewModel;
-ko.applyBindings(new HelloViewModel("TypeScript", "Knockout"));
 
 },{"knockout":1}]},{},[2]);

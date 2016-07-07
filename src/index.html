@@ -1,17 +1,41 @@
+<!DOCTYPE html>
+
 <html>
 
 <head>
   <title>KO, TS, Gulp!</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/all.css" />
 </head>
 
 <body>
-  <p id="test">Some Test.</p>
-  <p>
-    Hello from
-    <strong data-bind="text: language">todo</strong> and
-    <strong data-bind="text: framework">todo</strong>!
-  </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="hey">Some Test.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6" id="hi">
+        <p>
+          Hello from
+          <strong data-bind="text: language">todo</strong>
+          <strong data-bind="text: framework">todo</strong>!
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div id="ppl" data-bind="foreach: people">
+          <div class="person">
+            First Name: <span class="name" data-bind="text: firstName"></span>
+            Last Name: <span class="name" data-bind="text: lastName"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="js/all.js"></script>
 </body>
 
