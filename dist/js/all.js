@@ -5878,7 +5878,7 @@ var hello_1 = require('./hello');
 var Greeting = (function () {
     function Greeting(greeting) {
         this.greeting = greeting;
-        console.log('Greeting constructed! ' + greeting);
+        console.log('Greeting Constructed');
     }
     Greeting.prototype.greet = function () {
         return "<h1>" + this.greeting + "</h1>";
@@ -5887,8 +5887,8 @@ var Greeting = (function () {
 }());
 var Person = (function () {
     function Person(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = ko.observable(firstName);
+        this.lastName = ko.observable(lastName);
     }
     ;
     return Person;
@@ -5900,7 +5900,7 @@ var PeopleViewModel = (function () {
     return PeopleViewModel;
 }());
 var personArray = [
-    new Person('Test', 'Testerson'),
+    new Person('Jack', 'Wolf'),
     new Person('Nick', 'Kane'),
     new Person('Frank', 'McCready'),
     new Person('Mila', 'Korshunov'),
@@ -5915,9 +5915,9 @@ var personArray = [
     new Person('Scott', 'Nearman'),
     new Person('Carrie', 'Holden')
 ];
-ko.applyBindings(new PeopleViewModel(personArray), document.getElementById('ppl'));
 ko.applyBindings(new hello_1.default("TypeScript", "Knockout"), document.getElementById('hi'));
-var hey = new Greeting("Hey hey hey!");
+ko.applyBindings(new PeopleViewModel(personArray), document.getElementById('ppl'));
+var hey = new Greeting('Hey hey!  This greeting comes from the <strong>TypeScript</strong> class <span class="code">Greeting</span>!');
 document.getElementById('hey').innerHTML = hey.greet();
 
 },{"./hello":3,"knockout":1}],3:[function(require,module,exports){

@@ -3,21 +3,21 @@ import * as ko from 'knockout';
 import sayHi from './hello';
 
 class Greeting {
-  constructor(public greeting: string) {console.log('Greeting constructed! ' + greeting);}
-
+  constructor(public greeting: string) {console.log('Greeting Constructed');}
   greet() {
     return `<h1>${this.greeting}</h1>`;
   }
 }
-class Person {
-  firstName: string
-  lastName: string
 
+class Person {
+  firstName: KnockoutObservable<string>
+  lastName: KnockoutObservable<string>
   constructor(firstName: string, lastName: string){
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.firstName = ko.observable(firstName);
+    this.lastName = ko.observable(lastName);
   };
 }
+
 class PeopleViewModel {
   people: KnockoutObservableArray<Person>
   constructor(p: Person[]){
@@ -25,9 +25,8 @@ class PeopleViewModel {
   }
 }
 
-
 let personArray: Person[] = [
-  new Person('Test', 'Testerson'),
+  new Person('Jack', 'Wolf'),
   new Person('Nick', 'Kane'),
   new Person('Frank', 'McCready'),
   new Person('Mila', 'Korshunov'),
@@ -43,9 +42,8 @@ let personArray: Person[] = [
   new Person('Carrie', 'Holden')
 ];
 
-
-ko.applyBindings(new PeopleViewModel(personArray), document.getElementById('ppl'));
 ko.applyBindings(new sayHi("TypeScript", "Knockout"), document.getElementById('hi'));
+ko.applyBindings(new PeopleViewModel(personArray), document.getElementById('ppl'));
 
-let hey: Greeting = new Greeting("Hey hey hey!");
+let hey: Greeting = new Greeting('Hey hey!  This greeting comes from the <strong>TypeScript</strong> class <span class="code">Greeting</span>!');
 document.getElementById('hey').innerHTML = hey.greet();

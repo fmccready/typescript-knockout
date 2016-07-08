@@ -16,21 +16,30 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-6" id="hi">
+      <div class="col-xs-12 col-md-3" id="hi">
         <p>
           Hello from
-          <strong data-bind="text: language">todo</strong>
+          <strong data-bind="text: language">todo</strong> and
           <strong data-bind="text: framework">todo</strong>!
         </p>
       </div>
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-9">
+        <h2>This list was created using knockout's data-bind. An array of Person objects is made into a <strong>Knockout</strong> <span class="code">observableArray</span></h2>
+
         <div id="ppl" data-bind="foreach: people">
-          <div class="person">
-            First Name: <span class="name" data-bind="text: firstName"></span>
-            Last Name: <span class="name" data-bind="text: lastName"></span>
+          <div class="card">
+            <div class="firstname">
+              First Name: <span class="name" data-bind="text: $data.firstName"></span>
+            </div>
+            <div class="lastname">
+              Last Name: <span class="name" data-bind="text: lastName"></span>
+            </div>
+            <div class="rename">
+              First:<input data-bind="textInput: $data.firstName" />, Last:<input data-bind="textInput: $data.lastName" />
+            </div>
+            <button class="btn btn-default">I don't like my name.</button>
           </div>
         </div>
-
       </div>
     </div>
   </div>

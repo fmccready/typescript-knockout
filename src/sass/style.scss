@@ -1,8 +1,10 @@
-$purple: rgb(179, 96, 204);
-$person: rgb(44, 170, 19);
-p {
-  background-color: $purple;
+$hello: rgb(45, 90, 205);
+$monospace: "Courier New", Courier, monospace;
+
+strong {
+  font-family: $monospace;
 }
-.person .name {
-  color: $person;
+
+span.code {
+  font-family: $monospace;
 }

@@ -1,5 +1,5 @@
-p {
-  background-color: #b360cc; }
+strong {
+  font-family: "Courier New", Courier, monospace; }
 
-.person .name {
-  color: #2caa13; }
+span.code {
+  font-family: "Courier New", Courier, monospace; }
